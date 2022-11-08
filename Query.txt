@@ -1,0 +1,35 @@
+/* Query 1 – query used for first insight /
+SELECT MediaType.Name , count(Track.MediaTypeId)  as total
+From Track
+JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
+GROUP BY MediaType.Name 
+ORDER BY total DESC 
+LIMIT 5;
+
+/* Query 2 – query used for first insight /
+SELECT (Customer.Country) as CustomerCountry , 
+sum(Invoice.total) as total
+From Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+GROUP BY CustomerCountry 
+ORDER BY total DESC 
+LIMIT 10;
+
+/* Query 3 – query used for first insight /
+SELECT Artist.Name , 
+count(Album.ArtistId) "Number of Album"
+FROM Album
+JOIN Artist on Album.ArtistId=Artist.ArtistId
+GROUP by Artist.Name 
+ORDER by "Number of Album" ASC 
+LIMIT 6;
+
+
+/* Query 4 – query used for first insight /
+SELECT (Customer.FirstName ||" "|| Customer.LastName) as Customers , 
+Sum(Invoice.total) as total 
+From Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+GROUP BY Customers
+ORDER BY total DESC 
+LIMIT 10;
